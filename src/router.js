@@ -5,6 +5,8 @@ import { UniversitySearch } from "./pages/University_search";
 
 import { Home } from "./Home";
 
+import { Login } from "./pages/Login";
+
 export const router = createBrowserRouter(
   [
     {
@@ -20,6 +22,10 @@ export const router = createBrowserRouter(
     {
       path: "/University_Search",
       element: <UniversitySearch />,
+    },
+    {
+      path: "/login",
+      element: <Login />,
     },
   ],
   {

@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = "http://localhost:3001";
 
 /**
  * Calls an API endpoint. If the response is not ok, an error is thrown with the

@@ -17,6 +17,9 @@ export const getMe = () => {
 export const login = (email, password) => {
   return callApi("/auth/login", {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify({
       email,
       password,
@@ -46,6 +49,9 @@ export const logout = () => {
 export const register = (firstName, lastName, email, password) => {
   return callApi("/auth/register", {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify({
       firstName,
       lastName,
