@@ -28,6 +28,16 @@ button {
   cursor: pointer;
 }
 
+.autoFillItem {
+  background-color: rgb(247, 247, 247);
+  color: black;
+  border: 1px solid gray;
+}
+
+.autoFillItem:hover {
+  background-color: #dddddd;
+}
+
 
 table {
   width: 100%;
