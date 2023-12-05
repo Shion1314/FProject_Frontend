@@ -4,10 +4,17 @@ import * as ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 
+import { getMe } from "./api/Auth";
+
 import { router } from "./router";
-import { store } from "./store";
+
+import { setUser, store } from "./store";
 
 import "./styles.css";
+
+getMe()
+  .then(({ user }) => store.dispatch(setUser(user)))
+  .catch((error) => console.warn(`Could not restore session: ${error.message}`));
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

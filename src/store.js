@@ -1,15 +1,26 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-const globalSlice = createSlice({
-  name: "global",
+const authSlice = createSlice({
+  name: "auth",
   initialState: {
-    universityName: '',
-    searchResults: null,
+    user: null,
+  },
+  reducers: {
+    setUser(state, action) {
+      state.user = action.payload;
+    },
+  },
+});
 
+const universitySlice = createSlice({
+  name: "university",
+  initialState: {
+    universityName: "",
+    searchResults: null,
   },
   reducers: {
     reset(state) {
-      state.universityName = '';
+      state.universityName = "";
       state.searchResults = null;
       state.error = null;
     },
@@ -24,12 +35,10 @@ const globalSlice = createSlice({
 
 export const store = configureStore({
   reducer: {
-    global: globalSlice.reducer,
+    auth: authSlice.reducer,
+    university: universitySlice.reducer,
   },
 });
 
-export const {
-  reset,
-  setUniversityName,
-  setSearchResults,
-} = globalSlice.actions;
+export const { setUser } = authSlice.actions;
+export const { reset, setUniversityName, setSearchResults } = universitySlice.actions;
