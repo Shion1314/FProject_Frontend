@@ -1,16 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { getInfo } from "../api/University";
 import { useDispatch, useSelector } from "react-redux";
 import { setUniversityName, setSearchResults } from "../store";
+import { getAutofillUniversityNames } from "../api/UniversityAutofill";
 
 export const UniversitySearch = () => {
+  const [autoFillUniversity, setAutoFillUniversity] = useState([]);
   const dispatch = useDispatch();
 
   const universityName = useSelector((state) => state.university.universityName);
   const searchResults = useSelector((state) => state.university.searchResults);
 
+  const handleFormChange = (input) => {
+    dispatch(setUniversityName(input))
+    if (input && input.length > 2) {
+      getAutofillUniversityNames(input).then((data) => {
+        let autoFillList = [];
+        data.results.forEach((u) => {
+          autoFillList = [...autoFillList, u["school.name"]];
+        })
+        setAutoFillUniversity(autoFillList);
+      })
+    }
+  }
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    document.getElementById("autoFill").style.display = "none";
 
     const SearchParameter = {
       university_name: universityName,
@@ -19,7 +35,6 @@ export const UniversitySearch = () => {
     getInfo(SearchParameter)
       .then((data) => {
         dispatch(setSearchResults(Array.isArray(data) ? data : [data]));
-        console.log(data);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -27,20 +42,38 @@ export const UniversitySearch = () => {
   };
   return (
     <div>
-      <div class="user">
+      <div className="user">
         {" "}
         <link></link>
       </div>
-      <form onSubmit={handleFormSubmit}>
+      <form onSubmit={handleFormSubmit} autoComplete="off" style={{ flexDirection: "row" }}>
         <label>
           University Name:
+        </label>
+        <div style={{ position: "relative", marginLeft: "20px", marginRight: "20px" }}>
           <input
             type="text"
             name="university_name"
             value={universityName}
-            onChange={(university) => dispatch(setUniversityName(university.target.value))}
+            onChange={(university) => handleFormChange(university.target.value)}
+            onFocus={() => {document.getElementById("autoFill").style.display = "block"}}
+            
           />
-        </label>
+          <div id="autoFill" style={{ position: "absolute", width: "100%", top: "38px"}}>
+            {autoFillUniversity.map((universityName) => (
+              <button 
+                key = {universityName}
+                className="autoFillItem" 
+                style={{ width: "100%" }} 
+                onClick={() => {
+                  dispatch(setUniversityName(universityName));
+                  document.getElementById("autoFill").style.display = "none";
+                }}>
+                <p style={{margin: "10px"}}>{universityName}</p>
+              </button>
+            ))}
+          </div>
+        </div>
 
         <button type="submit">Search</button>
       </form>
