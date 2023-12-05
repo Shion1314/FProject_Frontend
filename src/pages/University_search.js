@@ -42,7 +42,7 @@ export const UniversitySearch = () => {
   };
   return (
     <div>
-      <div class="user">
+      <div className="user">
         {" "}
         <link></link>
       </div>
@@ -60,8 +60,9 @@ export const UniversitySearch = () => {
             
           />
           <div id="autoFill" style={{ position: "absolute", width: "100%", top: "38px"}}>
-            {autoFillUniversity.map((universityName) => (
+            {autoFillUniversity.map((universityName, i) => (
               <button 
+                key = {i}
                 className="autoFillItem" 
                 style={{ width: "100%" }} 
                 onClick={() => {
