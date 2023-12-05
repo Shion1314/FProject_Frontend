@@ -69,7 +69,7 @@ export const Register = () => {
             type="email"
             name="email"
             value={email}
-            onChange={(email) => setEmail(email.target.value)}
+            onChange={(event) => setEmail(event.target.value)}
           />
         </label>
 
@@ -79,7 +79,7 @@ export const Register = () => {
             type="password"
             name="password"
             value={password}
-            onChange={(password) => setPassword(password.target.value)}
+            onChange={(event) => setPassword(event.target.value)}
           />
         </label>
 

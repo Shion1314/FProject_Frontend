@@ -12,14 +12,14 @@ export const Login = () => {
   const user = useSelector((state) => state.auth.user);
 
   const [errorMessage, setErrorMessage] = useState(null);
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const { user } = await login(username, password);
+      const { user } = await login(email, password);
 
       dispatch(setUser(user));
 
@@ -41,10 +41,10 @@ export const Login = () => {
         <label>
           Username:
           <input
-            type="text"
-            name="username"
-            value={username}
-            onChange={(username) => setUsername(username.target.value)}
+            type="email"
+            name="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
           />
         </label>
 
@@ -54,7 +54,7 @@ export const Login = () => {
             type="password"
             name="password"
             value={password}
-            onChange={(password) => setPassword(password.target.value)}
+            onChange={(event) => setPassword(event.target.value)}
           />
         </label>
 
