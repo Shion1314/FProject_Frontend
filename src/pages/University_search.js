@@ -1,43 +1,36 @@
-import React from 'react';
-import { getInfo } from '../api/University';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  setUniversityName,
-  setSearchResults,
-} from '../store';
+import React from "react";
+import { getInfo } from "../api/University";
+import { useDispatch, useSelector } from "react-redux";
+import { setUniversityName, setSearchResults } from "../store";
 
 export const UniversitySearch = () => {
   const dispatch = useDispatch();
 
-  
   const universityName = useSelector((state) => state.global.universityName);
   const searchResults = useSelector((state) => state.global.searchResults);
 
-   const handleFormSubmit = (e) => {
+  const handleFormSubmit = (e) => {
     e.preventDefault();
 
-   
-    const SearchParameter= {
+    const SearchParameter = {
       university_name: universityName,
     };
 
     getInfo(SearchParameter)
       .then((data) => {
-       
         dispatch(setSearchResults(Array.isArray(data) ? data : [data]));
         console.log(data);
       })
       .catch((error) => {
-        console.error('Error fetching data:', error);
-      
+        console.error("Error fetching data:", error);
       });
   };
   return (
-   
     <div>
-        <div  class="user"> <link></link>
-       
-        </div>
+      <div class="user">
+        {" "}
+        <link></link>
+      </div>
       <form onSubmit={handleFormSubmit}>
         <label>
           University Name:
@@ -45,10 +38,10 @@ export const UniversitySearch = () => {
             type="text"
             name="university_name"
             value={universityName}
-            onChange={(university)=> dispatch(setUniversityName(university.target.value))}
+            onChange={(university) => dispatch(setUniversityName(university.target.value))}
           />
         </label>
-    
+
         <button type="submit">Search</button>
       </form>
 
@@ -65,7 +58,6 @@ export const UniversitySearch = () => {
               <th>Tuition_instate</th>
               <th>Tuition_outstate</th>
               <th>Pouplar Major</th>
-              
             </tr>
           </thead>
           <tbody>
@@ -88,4 +80,3 @@ export const UniversitySearch = () => {
     </div>
   );
 };
-

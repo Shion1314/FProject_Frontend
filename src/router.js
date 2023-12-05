@@ -1,10 +1,9 @@
 import { Outlet, createBrowserRouter } from "react-router-dom";
 
-import {ErrorFallback} from "./ErrorFallback"
+import { ErrorFallback } from "./ErrorFallback";
 import { UniversitySearch } from "./pages/University_search";
 
 import { Home } from "./Home";
-
 
 export const router = createBrowserRouter(
   [
@@ -19,11 +18,9 @@ export const router = createBrowserRouter(
       ],
     },
     {
-        path:"/University_Search",
-        element: <UniversitySearch/>
-
-    }
-   
+      path: "/University_Search",
+      element: <UniversitySearch />,
+    },
   ],
   {
     basename: "/FProject_Frontend",

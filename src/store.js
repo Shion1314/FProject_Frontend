@@ -3,13 +3,12 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 const globalSlice = createSlice({
   name: "global",
   initialState: {
-    universityName: '',
+    universityName: "",
     searchResults: null,
-
   },
   reducers: {
     reset(state) {
-      state.universityName = '';
+      state.universityName = "";
       state.searchResults = null;
       state.error = null;
     },
@@ -28,8 +27,4 @@ export const store = configureStore({
   },
 });
 
-export const {
-  reset,
-  setUniversityName,
-  setSearchResults,
-} = globalSlice.actions;
+export const { reset, setUniversityName, setSearchResults } = globalSlice.actions;
