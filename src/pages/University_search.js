@@ -15,16 +15,13 @@ export const UniversitySearch = () => {
     dispatch(setUniversityName(input))
     if (input && input.length > 2) {
       getAutofillUniversityNames(input).then((data) => {
-        console.log(data.results);
         let autoFillList = [];
         data.results.forEach((u) => {
           autoFillList = [...autoFillList, u["school.name"]];
         })
-        console.log("now setting state to ", autoFillList)
         setAutoFillUniversity(autoFillList);
       })
     }
-    console.log("current state is ", autoFillUniversity)
   }
 
   const handleFormSubmit = (e) => {
@@ -38,7 +35,6 @@ export const UniversitySearch = () => {
     getInfo(SearchParameter)
       .then((data) => {
         dispatch(setSearchResults(Array.isArray(data) ? data : [data]));
-        console.log(data);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
