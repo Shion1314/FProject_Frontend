@@ -15,10 +15,10 @@ export const callApi = async (endpoint, options = {}) => {
     ...options,
   });
 
-  const data = await res.json();
+  const data = await res.json().catch(() => ({}));
 
   if (!res.ok) {
-    throw new Error(data.message);
+    throw new Error(data.message || res.text);
   }
 
   return data;
