@@ -6,6 +6,7 @@ import { UniversitySearch } from "./pages/University_search";
 import { Home } from "./Home";
 
 import { Login } from "./pages/Login";
+import { Logout } from "./pages/Logout";
 import { Register } from "./pages/Register";
 
 export const router = createBrowserRouter(
@@ -27,6 +28,10 @@ export const router = createBrowserRouter(
     {
       path: "/login",
       element: <Login />,
+    },
+    {
+      path: "/logout",
+      element: <Logout />,
     },
     {
       path: "/register",
