@@ -9,7 +9,7 @@ import { setUser } from "../store";
 export const Login = () => {
   const dispatch = useDispatch();
 
-  const user = useSelector((state) => state.auth.user);
+  const currentUser = useSelector((state) => state.auth.user);
 
   const [errorMessage, setErrorMessage] = useState(null);
   const [email, setEmail] = useState("");
@@ -63,9 +63,9 @@ export const Login = () => {
 
       {errorMessage && <p>{errorMessage}</p>}
 
-      {user && (
+      {currentUser && (
         <div>
-          <h2>Logged in as {user.firstName}</h2>
+          <h2>Logged in as {currentUser.firstName}</h2>
         </div>
       )}
     </main>
