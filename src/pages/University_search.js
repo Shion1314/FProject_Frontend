@@ -6,8 +6,8 @@ import { setUniversityName, setSearchResults } from "../store";
 export const UniversitySearch = () => {
   const dispatch = useDispatch();
 
-  const universityName = useSelector((state) => state.global.universityName);
-  const searchResults = useSelector((state) => state.global.searchResults);
+  const universityName = useSelector((state) => state.university.universityName);
+  const searchResults = useSelector((state) => state.university.searchResults);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
