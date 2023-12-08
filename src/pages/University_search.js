@@ -83,9 +83,8 @@ export const UniversitySearch = () => {
           <thead>
             <tr>
               <th>University Name</th>
-              <th>SAT_25th</th>
-              <th>SAT_75th</th>
-              <th>ACT_25th</th>
+              <th>Avg_SAT</th>
+              <th>Avg_ACT</th>
               <th>GPA Average</th>
               <th>Admissions_rate</th>
               <th>Tuition_instate</th>
@@ -97,9 +96,8 @@ export const UniversitySearch = () => {
             {searchResults.map((result, index) => (
               <tr key={index}>
                 <td>{result.university_name}</td>
-                <td>{result.sat_score_25th}</td>
-                <td>{result.sat_score_75th}</td>
-                <td>{result.act_score_25th}</td>
+                <td>{result.avg_sat}</td>
+                <td>{result.avg_act}</td>
                 <td>{result.gpa_avg}</td>
                 <td>{result.admissions_rate}</td>
                 <td>{result.tuition_instate_full}</td>
