@@ -75,13 +75,7 @@ export const UniversitySearch = () => {
 
   const toggleSearchForm = () => {
     setIsSearchFormVisible(!isSearchFormVisible);
-    if (isSearchFormVisible) {
-      // Show autoFill when switching to search mode
-      const autoFillElement = document.getElementById("autoFill");
-      if (autoFillElement) {
-        autoFillElement.style.display = "block";
-      }
-    }
+    
   };
 
   return (
@@ -90,7 +84,7 @@ export const UniversitySearch = () => {
         {isSearchFormVisible ? "Filter mode" : "Search University mode"}
       </button>
 
-   {!isSearchFormVisible && (
+   {isSearchFormVisible && (
         <form onSubmit={handleFormSubmit} autoComplete="off" style={{ flexDirection: "row" }}>
           <label>University Name:</label>
           <div style={{ position: "relative", marginLeft: "20px", marginRight: "20px" }}>
@@ -123,7 +117,7 @@ export const UniversitySearch = () => {
         </form>
       )}
 
-      {isSearchFormVisible && (
+      {!isSearchFormVisible && (
         <form onSubmit={handleFormSubmit2}>
         <label>
           SAT Score:
