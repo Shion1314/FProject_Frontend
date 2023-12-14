@@ -60,3 +60,16 @@ export const register = (firstName, lastName, email, password) => {
     }),
   });
 };
+
+
+export const updateUniversity = (id, university) => {
+  return callApi(`/auth/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      university,
+    }),
+  });
+};
