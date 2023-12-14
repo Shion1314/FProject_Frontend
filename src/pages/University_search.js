@@ -208,16 +208,16 @@ onClick={() => {
   const favoriteUniversity = result.university_name;
 console.log(currentUser.email)
 console.log(currentUser.university)
-  // Check if currentUser.university is not null
+
   if (currentUser.university !== null ) {
-    // Check if the new value is already in the array
+   
 
       const userConfirmed = window.confirm(
         `You already have a favorite university. Do you want to add more?`
       );
 
       if (!userConfirmed) {
-        // User clicked "No" or canceled the confirmation
+    
         return;
       }
     
