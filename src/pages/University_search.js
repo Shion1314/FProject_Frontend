@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { getInfo } from "../api/University";
+import { updateUniversity } from "../api/Auth";
 import { useDispatch, useSelector } from "react-redux";
 import { setUniversityName, setSearchResults, setSat_score, setGPA, setTuition_in, setTuition_out,setMajor } from "../store";
 import { getAutofillUniversityNames } from "../api/UniversityAutofill";
@@ -77,14 +78,17 @@ export const UniversitySearch = () => {
     setIsSearchFormVisible(!isSearchFormVisible);
     
   };
-
+  const currentUser = useSelector((state) => state.auth.user);
+  
+  console.log("hello"+currentUser);
   return (
     <div>
+      
       <button onClick={toggleSearchForm}>
         {isSearchFormVisible ? "Filter mode" : "Search University mode"}
       </button>
 
-   {isSearchFormVisible && (
+   {isSearchFormVisible && currentUser && (
         <form onSubmit={handleFormSubmit} autoComplete="off" style={{ flexDirection: "row" }}>
           <label>University Name:</label>
           <div style={{ position: "relative", marginLeft: "20px", marginRight: "20px" }}>
@@ -117,7 +121,7 @@ export const UniversitySearch = () => {
         </form>
       )}
 
-      {!isSearchFormVisible && (
+      {!isSearchFormVisible &&currentUser&& (
         <form onSubmit={handleFormSubmit2}>
         <label>
           SAT Score:
@@ -172,7 +176,7 @@ export const UniversitySearch = () => {
       </form>
       )}
 
-      {searchResults && searchResults.length > 0 && (
+      {searchResults && searchResults.length > 0 && currentUser&& (
         <table>
           <thead>
             <tr>
@@ -184,6 +188,7 @@ export const UniversitySearch = () => {
               <th>Tuition_instate</th>
               <th>Tuition_outstate</th>
               <th>Pouplar Major</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -197,6 +202,35 @@ export const UniversitySearch = () => {
                 <td>{result.tuition_instate_full}</td>
                 <td>{result.tuition_outstate_full}</td>
                 <td>{result.popular_major}</td>
+                <td>
+                <button
+onClick={() => {
+  const favoriteUniversity = result.university_name;
+console.log(currentUser.email)
+console.log(currentUser.university)
+  // Check if currentUser.university is not null
+  if (currentUser.university !== null ) {
+    // Check if the new value is already in the array
+
+      const userConfirmed = window.confirm(
+        `You already have a favorite university. Do you want to add more?`
+      );
+
+      if (!userConfirmed) {
+        // User clicked "No" or canceled the confirmation
+        return;
+      }
+    
+  }
+
+  // Update the favorite university
+  updateUniversity(currentUser.id, favoriteUniversity);
+}}
+>
+  Add favorite
+</button>
+
+          </td>
               </tr>
             ))}
           </tbody>
