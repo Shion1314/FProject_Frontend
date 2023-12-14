@@ -213,7 +213,7 @@ console.log(currentUser.university)
    
 
       const userConfirmed = window.confirm(
-        `You already have a favorite university. Do you want to add more?`
+        `You already have a favorite university. Do you still want to add ${favoriteUniversity}?`
       );
 
       if (!userConfirmed) {
