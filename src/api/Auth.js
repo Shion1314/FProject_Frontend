@@ -73,3 +73,14 @@ export const updateUniversity = (id, university) => {
     }),
   });
 };
+
+export const getLike = (id) => {
+  const url = `http://localhost:3001/auth/${id}`;
+
+  return fetch(url)
+    .then((response) => response.json())
+    .catch((error) => {
+      console.error('Error:', error);
+      throw error;  
+    });
+};

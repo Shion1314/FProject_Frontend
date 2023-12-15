@@ -4,10 +4,14 @@ const authSlice = createSlice({
   name: "auth",
   initialState: {
     user: null,
+    university: null,
   },
   reducers: {
     setUser(state, action) {
      state.user = action.payload;
+    },
+    setLike(state,action){
+      state.university=action.payload
     },
   },
 });
@@ -66,5 +70,5 @@ export const store = configureStore({
   },
 });
 
-export const { setUser } = authSlice.actions;
+export const { setUser,setLike } = authSlice.actions;
 export const { reset, setUniversityName, setSat_score, setGPA,setTuition_in,setTuition_out,setMajor,setSearchResults } = universitySlice.actions;

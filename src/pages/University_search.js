@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { getInfo } from "../api/University";
-import { updateUniversity } from "../api/Auth";
+import {  getLike,updateUniversity } from "../api/Auth";
 import { useDispatch, useSelector } from "react-redux";
-import { setUniversityName, setSearchResults, setSat_score, setGPA, setTuition_in, setTuition_out,setMajor } from "../store";
+import { setUniversityName, setSearchResults, setSat_score, setGPA, setTuition_in, setTuition_out,setMajor} from "../store";
+import { setLike} from "../store";
+
 import { getAutofillUniversityNames } from "../api/UniversityAutofill";
 
 export const UniversitySearch = () => {
@@ -17,6 +19,8 @@ export const UniversitySearch = () => {
   const tution_in=useSelector((state) => state.university.tuition_instate_full);
   const tution_out=useSelector((state) => state.university.tuition_outstate_full);
   const major=useSelector((state) => state.university.popular_major);
+  const currentUser = useSelector((state) => state.auth.user);
+  const saved=useSelector((state) => state.auth.university);
 
   const handleFormChange = (input) => {
     dispatch(setUniversityName(input));
@@ -48,6 +52,8 @@ export const UniversitySearch = () => {
       });
   };
 
+
+
   const handleFormSubmit2 = (e) => {
     
     e.preventDefault();
@@ -78,15 +84,25 @@ export const UniversitySearch = () => {
     setIsSearchFormVisible(!isSearchFormVisible);
     
   };
-  const currentUser = useSelector((state) => state.auth.user);
+ 
   
   console.log("hello"+currentUser);
+
   return (
     <div>
-      
-      <button onClick={toggleSearchForm}>
+        
+       { currentUser && (
+       <button onClick={toggleSearchForm}>
         {isSearchFormVisible ? "Filter mode" : "Search University mode"}
       </button>
+       )}
+
+       {!currentUser &&(
+        <h>you need to login to access this page</h>
+
+       )}
+       <p>Your favorite university:{saved}</p>
+     
 
    {isSearchFormVisible && currentUser && (
         <form onSubmit={handleFormSubmit} autoComplete="off" style={{ flexDirection: "row" }}>
@@ -202,33 +218,45 @@ export const UniversitySearch = () => {
                 <td>{result.tuition_instate_full}</td>
                 <td>{result.tuition_outstate_full}</td>
                 <td>{result.popular_major}</td>
+               
                 <td>
                 <button
-onClick={() => {
+ onClick={() => {
   const favoriteUniversity = result.university_name;
-console.log(currentUser.email)
-console.log(currentUser.university)
+  console.log(currentUser.email);
+  console.log(currentUser.university);
+  console.log(currentUser.university);
 
-  if (currentUser.university !== null ) {
-   
+  const userId = currentUser.id;
 
-      const userConfirmed = window.confirm(
-        `You already have a favorite university. Do you still want to add ${favoriteUniversity}?`
-      );
+  getLike(userId)
+    .then((data) => {
+      if (data.university !== null) {
+        const userConfirmed = window.confirm(
+          `You already have a favorite university. Do you still want to add ${favoriteUniversity}?`
+        );
 
-      if (!userConfirmed) {
-    
-        return;
+        if (!userConfirmed) {
+          return;
+        }
       }
-    
-  }
 
-  // Update the favorite university
-  updateUniversity(currentUser.id, favoriteUniversity);
+    
+      updateUniversity(userId, favoriteUniversity)
+        .then(() => {
+          console.log(`Successfully updated favorite university to ${favoriteUniversity}`);
+          window.alert(`Successfully updated favorite university to ${favoriteUniversity}`);
+          dispatch(setLike(favoriteUniversity))
+        })
+    })
+    .catch((error) => {
+      console.error('Error fetching user information:', error);
+    });
 }}
 >
-  Add favorite
+Add favorite
 </button>
+
 
           </td>
               </tr>
@@ -236,6 +264,8 @@ console.log(currentUser.university)
           </tbody>
         </table>
       )}
+    
     </div>
+  
   );
 };
