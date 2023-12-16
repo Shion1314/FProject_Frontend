@@ -4,7 +4,8 @@ import { Flex, Box, Text, Button, Card, CardBody, CardFooter, CardHeader, Contai
 import { useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 
-import { getMe, register } from "../api/Auth";
+import { getMe } from "../api/Me";
+import { register } from "../api/Auth";
 
 import { setUser } from "../store";
 

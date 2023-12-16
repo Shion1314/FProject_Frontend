@@ -1,14 +1,6 @@
 import { callApi } from "../utils/call-api";
 
 /**
- * Gets the currently logged in user.
- * @returns A promise that resolves to the current user
- */
-export const getMe = () => {
-  return callApi("/auth/@me");
-};
-
-/**
  * Logs in a user with the given email and password. This will set a session cookie.
  * @param {string} email
  * @param {string} password
@@ -33,7 +25,7 @@ export const login = (email, password) => {
  */
 export const logout = () => {
   return callApi("/auth/logout", {
-    method: "POST",
+    method: "DELETE",
   });
 };
 
@@ -60,7 +52,6 @@ export const register = (firstName, lastName, email, password) => {
     }),
   });
 };
-
 
 export const updateUniversity = (id, university) => {
   return callApi(`/auth/${id}`, {

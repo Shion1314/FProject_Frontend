@@ -5,7 +5,7 @@ import { RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import { ChakraProvider } from '@chakra-ui/react';
 
-import { getMe } from "./api/Auth";
+import { getMe } from "./api/Me";
 
 import { router } from "./router";
 
