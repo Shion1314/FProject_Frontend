@@ -7,7 +7,7 @@ import { callApi } from "../utils/call-api";
  * @returns A promise that resolves when the password is successfully changed
  */
 export const changePassword = (oldPassword, newPassword) => {
-  return callApi("/@me/password", {
+  return callApi("/@me/change-password", {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
