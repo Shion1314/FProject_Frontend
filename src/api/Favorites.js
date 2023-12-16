@@ -33,3 +33,23 @@ export const removeFavorite = (universityId) => {
     method: "DELETE",
   });
 };
+
+/**
+ * Changes the rank of a favorited university for the current user. The university will be swapped with the university
+ * that is currently at the specified rank.
+ * @param {string} universityId The ID of the university to change the rank of
+ * @param {number} newRank The new rank to set for the specified university ID. Must be between 1 and the number of
+ * favorited universities.
+ * @returns A promise that resolves when the ranking for the university is updated
+ */
+export const rankFavorite = (universityId, newRank) => {
+  return callApi(`/favorites/${universityId}/rank`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      newRank,
+    }),
+  });
+};
