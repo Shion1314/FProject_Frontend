@@ -4,7 +4,7 @@ import * as ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 
-import { getMe } from "./api/Auth";
+import { getMe } from "./api/Me";
 
 import { router } from "./router";
 
