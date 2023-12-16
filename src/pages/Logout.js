@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, redirect, useNavigate } from "react-router-dom";
 
 import { logout } from "../api/Auth";
 
@@ -8,9 +8,11 @@ import { setUser } from "../store";
 
 export const Logout = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    logout().then(() => dispatch(setUser(null)));
+    logout().then(() => dispatch(setUser(null))).catch((e) => { console.log(e) })
+    navigate("/login");
   }, []);
 
   return (

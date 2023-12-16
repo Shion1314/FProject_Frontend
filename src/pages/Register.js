@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Flex, Box, Text, Button, Card, CardBody, CardFooter, CardHeader, Container, Heading, FormControl, FormLabel, Input } from "@chakra-ui/react";
 
 import { useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
@@ -36,57 +37,70 @@ export const Register = () => {
 
   return (
     <main>
-      <h1>Register</h1>
+      <Flex bg="#FCFAFF">
+        <Container w="100%" h="100vh" marginTop="10vh" maxW="md">
+          <Card p="5">
+            <CardHeader>
+              <Heading>Register</Heading>
+            </CardHeader>
+            <CardBody>
 
-      <p>
-        Already have an account? <Link to="/login">Login</Link>.
-      </p>
+              <form onSubmit={handleFormSubmit}>
+                <FormLabel>
+                  First Name:
+                </FormLabel>
+                <Input
+                  type="text"
+                  name="firstName"
+                  value={firstName}
+                  onChange={(firstName) => setFirstName(firstName.target.value)}
+                />
 
-      <form onSubmit={handleFormSubmit}>
-        <label>
-          First Name:
-          <input
-            type="text"
-            name="firstName"
-            value={firstName}
-            onChange={(firstName) => setFirstName(firstName.target.value)}
-          />
-        </label>
+                <FormLabel>
+                  Last Name:
+                </FormLabel>
+                <Input
+                  type="text"
+                  name="lastName"
+                  value={lastName}
+                  onChange={(lastName) => setLastName(lastName.target.value)}
+                />
 
-        <label>
-          Last Name:
-          <input
-            type="text"
-            name="lastName"
-            value={lastName}
-            onChange={(lastName) => setLastName(lastName.target.value)}
-          />
-        </label>
+                <FormLabel>
+                  Email:
+                </FormLabel>
+                <Input
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
+                />
 
-        <label>
-          Email:
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-        </label>
-
-        <label>
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
-
-        <button type="submit">Register</button>
-      </form>
-
-      {errorMessage && <p>{errorMessage}</p>}
+                <FormLabel>
+                  Password:
+                </FormLabel>
+                <Input
+                  type="password"
+                  name="password"
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
+                />
+                <Flex justifyContent="center">
+                  <Button type="submit">Register</Button>
+                </Flex>
+              </form>
+            </CardBody>
+            <CardFooter>
+              <Box>
+                {errorMessage && <Text color="red">{errorMessage}</Text>}
+                <p>
+                  Already have an account? <Link to="/login">Login</Link>.
+                </p>
+              </Box>
+            </CardFooter>
+          </Card>
+        </Container>
+      </Flex>
     </main>
   );
 };

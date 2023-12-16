@@ -1,16 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Navigate, redirect, useNavigate } from "react-router-dom";
 
 import { login } from "../api/Auth";
 
 import { setUser } from "../store";
+import { Flex, Box, Text, Button, Card, CardBody, CardFooter, CardHeader, Container, Heading, FormControl, FormLabel, Input } from "@chakra-ui/react";
 
 export const Login = () => {
   const dispatch = useDispatch();
 
   const currentUser = useSelector((state) => state.auth.user);
 
+  const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,6 +26,7 @@ export const Login = () => {
       dispatch(setUser(user));
 
       setErrorMessage(null);
+      navigate("/");
     } catch (error) {
       setErrorMessage(error.message);
     }
@@ -31,43 +34,56 @@ export const Login = () => {
 
   return (
     <main>
-      <h1>Login</h1>
+      <Flex bg="#FCFAFF">
+        <Container w="100%" h="100vh" marginTop="10vh" maxW="md">
+          <Card p="5">
+            <CardHeader>
+              <Heading>Login</Heading>
+            </CardHeader>
+            <CardBody>
 
-      <p>
-        Don't have an account? <Link to="/register">Register</Link>.
-      </p>
+              <form onSubmit={handleFormSubmit}>
+                <FormLabel>
+                  Username:
+                </FormLabel>
+                <Input
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
+                />
 
-      <form onSubmit={handleFormSubmit}>
-        <label>
-          Username:
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-        </label>
+                <FormLabel>
+                  Password:
+                </FormLabel>
+                <Input
+                  type="password"
+                  name="password"
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
+                />
+                <Flex justifyContent="center">
+                  <Button type="submit">Login</Button>
+                </Flex>
+              </form>
+            </CardBody>
+            <CardFooter>
+              <Box>
+                {errorMessage && <Text color="red">{errorMessage}</Text>}
+                <p>
+                  Don't have an account? <Link to="/register">Register</Link>.
+                </p>
 
-        <label>
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
-
-        <button type="submit">Login</button>
-      </form>
-
-      {errorMessage && <p>{errorMessage}</p>}
-
-      {currentUser && (
-        <div>
-          <h2>Logged in as {currentUser.firstName}</h2>
-        </div>
-      )}
+                {currentUser && (
+                  <div>
+                    <h2>Logged in as {currentUser.firstName}</h2>
+                  </div>
+                )}
+              </Box>
+            </CardFooter>
+          </Card>
+        </Container>
+      </Flex>
     </main>
   );
 };
