@@ -1,3 +1,5 @@
+import { callApi } from "../utils/call-api";
+
 /**
  * Adds a university to the list of favorites for the current user
  * @param {string} universityId The ID of the university to add
