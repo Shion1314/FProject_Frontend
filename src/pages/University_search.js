@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getInfo } from "../api/University";
-import { updateUniversity } from "../api/Auth";
 import { useDispatch, useSelector } from "react-redux";
 import { setUniversityName, setSearchResults, setSat_score, setGPA, setTuition_in, setTuition_out, setMajor } from "../store";
 import { getAutofillUniversityNames } from "../api/UniversityAutofill";
 import { DefaultLayout } from "../layout/DefaultLayout";
-import { Button, Flex, Text, Box, FormControl, FormLabel, Input, Container, TableContainer, Table, Th, Tr, Thead, Tbody, Td } from "@chakra-ui/react";
+import { Button, Flex, Text, Box, FormLabel, Input, Container, TableContainer, Table, Th, Tr, Thead, Tbody, Td } from "@chakra-ui/react";
+import { addFavorite, getFavorites, removeFavorite } from "../api/Favorites";
 
 export const UniversitySearch = () => {
   const [autoFillUniversity, setAutoFillUniversity] = useState([]);
+  const [favoriteUniversity, setFavoriteUniversity] = useState([]);
   const [isSearchFormVisible, setIsSearchFormVisible] = useState(true);
   const dispatch = useDispatch();
 
@@ -19,6 +20,16 @@ export const UniversitySearch = () => {
   const tution_in = useSelector((state) => state.university.tuition_instate_full);
   const tution_out = useSelector((state) => state.university.tuition_outstate_full);
   const major = useSelector((state) => state.university.popular_major);
+
+  useEffect(() => {
+    getFavorites().then((data) => {
+      let favoriteId = [];
+      data.map((u) => {
+        favoriteId = [...favoriteId, u.id];
+      })
+      setFavoriteUniversity(favoriteId);
+    })
+  }, [])
 
   const handleFormChange = (input) => {
     dispatch(setUniversityName(input));
@@ -57,8 +68,6 @@ export const UniversitySearch = () => {
     if (autoFillElement) {
       autoFillElement.style.display = "none";
     }
-    console.log("SAT Score:", sat_score);
-    console.log("GPA Score:", AVG_GPA);
     const searchParameters2 = {
       avg_sat: sat_score,
       gpa_avg: AVG_GPA,
@@ -82,7 +91,6 @@ export const UniversitySearch = () => {
   };
   const currentUser = useSelector((state) => state.auth.user);
 
-  console.log("hello" + currentUser);
   return (
     <DefaultLayout>
       <Button colorScheme="purple" onClick={toggleSearchForm}>
@@ -180,7 +188,7 @@ export const UniversitySearch = () => {
 
       {searchResults && searchResults.length > 0 && currentUser && (
         <TableContainer mx="4">
-          <Table colorScheme="purple" variant="striped" size="md">
+          <Table colorScheme="purple" size="md">
             <Thead>
               <Tr>
                 <Th>University Name</Th>
@@ -196,39 +204,41 @@ export const UniversitySearch = () => {
             </Thead>
             <Tbody>
               {searchResults.map((result, index) => (
-                <Tr key={index}>
+                <Tr key={index} bg={favoriteUniversity.includes(result.id) ? "#F0E3FF" : ""}>
                   <Td maxW="150px" whiteSpace="normal">{result.university_name}</Td>
-                  <Td>{result.avg_sat}</Td>
-                  <Td>{result.avg_act}</Td>
+                  <Td>{result.avg_sat == 0 ? "-" : result.avg_sat}</Td>
+                  <Td>{result.avg_act == 0 ? "-" : result.avg_act}</Td>
                   <Td>{result.gpa_avg}</Td>
                   <Td>{`${result.admissions_rate}%`}</Td>
                   <Td>{`$${result.tuition_instate_full}`}</Td>
                   <Td>{`$${result.tuition_outstate_full}`}</Td>
                   <Td maxW="150px" whiteSpace="normal">{result.popular_major}</Td>
                   <Td>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => {
-                        const favoriteUniversity = result.university_name;
-                        console.log(currentUser.email)
-                        console.log(currentUser.university)
-
-                        if (currentUser.university !== null) {
-                          const userConfirmed = window.confirm(
-                            `You already have a favorite university. Do you still want to add ${favoriteUniversity}?`
-                          );
-                          if (!userConfirmed) {
-                            return;
-                          }
-                        }
-                        // Update the favorite university
-                        updateUniversity(currentUser.id, favoriteUniversity);
-                      }}
-                    >
-                      Add favorite
-                    </Button>
-
+                    {favoriteUniversity.includes(result.id) ? (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => {
+                          removeFavorite(result.id).then(() => {
+                            setFavoriteUniversity(favoriteUniversity.filter((favorites) => favorites !== result.id));
+                          })
+                        }}
+                      >
+                        Remove favorite
+                      </Button>
+                    ) : (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => {
+                          addFavorite(result.id).then(() => {
+                            setFavoriteUniversity([...favoriteUniversity, result.id]);
+                          })
+                        }}
+                      >
+                        Add favorite
+                      </Button>
+                    )}
                   </Td>
                 </Tr>
               ))}
