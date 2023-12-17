@@ -239,7 +239,6 @@ export const UniversitySearch = () => {
                         Add favorite
                       </Button>
                     )}
-
                   </Td>
                 </Tr>
               ))}
