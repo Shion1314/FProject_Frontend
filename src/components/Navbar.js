@@ -63,9 +63,11 @@ export const Navbar = () => {
                                 ) : (
                                     `You are not logged in`
                                 )
-
                             }>
                                 <MenuDivider />
+                                {currentUser && (
+                                    <MenuItem as={Link} to="/Profile">Profile</MenuItem>
+                                )}
                                 <MenuItem as={Link} to={`/${currentUser ? "logout" : "login"}`}>{currentUser ? "Logout" : "Login"}</MenuItem>
                             </MenuGroup>
                         </MenuList>
