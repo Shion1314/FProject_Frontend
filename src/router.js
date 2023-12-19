@@ -3,7 +3,7 @@ import { Outlet, createBrowserRouter } from "react-router-dom";
 import { ErrorFallback } from "./ErrorFallback";
 import { UniversitySearch } from "./pages/University_search";
 
-import { Home } from "./Home";
+import { Home } from "./pages/Home";
 
 import { Login } from "./pages/Login";
 import { Logout } from "./pages/Logout";

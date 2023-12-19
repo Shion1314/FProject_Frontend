@@ -1,8 +1,7 @@
 import React from "react";
-import { DefaultLayout } from "./layout/DefaultLayout";
+import { DefaultLayout } from "../layout/DefaultLayout";
 
 export const Home = () => {
-  const genre = ["fiction", "romance", "fantasy", "horror", "history", "music", "film"];
 
   return (
     <DefaultLayout>
