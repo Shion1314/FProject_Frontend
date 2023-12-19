@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom/client";
 
 import { RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider } from "@chakra-ui/react";
 
 import { getMe } from "./api/Me";
 
