@@ -8,6 +8,7 @@ import { Home } from "./Home";
 import { Login } from "./pages/Login";
 import { Logout } from "./pages/Logout";
 import { Register } from "./pages/Register";
+import Profile from './pages/Profile';
 
 export const router = createBrowserRouter(
   [
@@ -37,6 +38,10 @@ export const router = createBrowserRouter(
       path: "/register",
       element: <Register />,
     },
+    {
+      path: "/Profile",
+      element: <Profile />,
+    }
   ],
   {
     basename: "/FProject_Frontend",
