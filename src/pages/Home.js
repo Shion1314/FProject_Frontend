@@ -7,7 +7,7 @@ export const Home = () => {
     <DefaultLayout>
       <main>
         <div style={{ margin: "10%", marginTop: "5%", fontSize: "1.20em", lineHeight: "2" }}>
-          <h1>Welcome to the Open Library Explorer!</h1>
+          <h1>Welcome to the University Explorer!</h1>
           <p style={{ margin: "3%" }}>
           This is a University search tool, allow user to search for university based on their score and their
             finanical strength
