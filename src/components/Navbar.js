@@ -1,20 +1,16 @@
-import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { FaUniversity } from "react-icons/fa";
 import {
-  Box,
   Flex,
   Avatar,
   Text,
-  HStack,
   Button,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
   MenuDivider,
-  Tooltip,
   MenuGroup,
 } from "@chakra-ui/react";
 
