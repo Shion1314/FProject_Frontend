@@ -1,47 +1,41 @@
-import { Outlet, createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 
 import { ErrorFallback } from "./ErrorFallback";
-import { UniversitySearch } from "./pages/University_search";
-
-import { Home } from "./pages/Home";
 
 import { Login } from "./pages/Login";
 import { Logout } from "./pages/Logout";
+import { Profile } from "./pages/Profile";
 import { Register } from "./pages/Register";
-import Profile from './pages/Profile';
+import { UniversitySearch } from "./pages/UniversitySearch";
 
 export const router = createBrowserRouter(
   [
     {
-      path: "/",
+      path: "",
       errorElement: <ErrorFallback />,
       children: [
         {
           path: "",
-          element: <Home />,
+          element: <UniversitySearch />,
+        },
+        {
+          path: "login",
+          element: <Login />,
+        },
+        {
+          path: "logout",
+          element: <Logout />,
+        },
+        {
+          path: "register",
+          element: <Register />,
+        },
+        {
+          path: "profile",
+          element: <Profile />,
         },
       ],
     },
-    {
-      path: "/University_Search",
-      element: <UniversitySearch />,
-    },
-    {
-      path: "/login",
-      element: <Login />,
-    },
-    {
-      path: "/logout",
-      element: <Logout />,
-    },
-    {
-      path: "/register",
-      element: <Register />,
-    },
-    {
-      path: "/Profile",
-      element: <Profile />,
-    }
   ],
   {
     basename: "/FProject_Frontend",

@@ -5,7 +5,21 @@ import { Link, Navigate, redirect, useNavigate } from "react-router-dom";
 import { login } from "../api/Auth";
 
 import { setUser } from "../store";
-import { Flex, Box, Text, Button, Card, CardBody, CardFooter, CardHeader, Container, Heading, FormControl, FormLabel, Input } from "@chakra-ui/react";
+import {
+  Flex,
+  Box,
+  Text,
+  Button,
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Container,
+  Heading,
+  FormControl,
+  FormLabel,
+  Input,
+} from "@chakra-ui/react";
 
 export const Login = () => {
   const dispatch = useDispatch();
@@ -41,11 +55,8 @@ export const Login = () => {
               <Heading>Login</Heading>
             </CardHeader>
             <CardBody>
-
               <form onSubmit={handleFormSubmit}>
-                <FormLabel>
-                  Username:
-                </FormLabel>
+                <FormLabel>Username:</FormLabel>
                 <Input
                   type="email"
                   name="email"
@@ -53,9 +64,7 @@ export const Login = () => {
                   onChange={(event) => setEmail(event.target.value)}
                 />
 
-                <FormLabel>
-                  Password:
-                </FormLabel>
+                <FormLabel>Password:</FormLabel>
                 <Input
                   type="password"
                   name="password"
@@ -70,15 +79,10 @@ export const Login = () => {
             <CardFooter>
               <Box>
                 {errorMessage && <Text color="red">{errorMessage}</Text>}
+
                 <p>
                   Don't have an account? <Link to="/register">Register</Link>.
                 </p>
-
-                {currentUser && (
-                  <div>
-                    <h2>Logged in as {currentUser.firstName}</h2>
-                  </div>
-                )}
               </Box>
             </CardFooter>
           </Card>
