@@ -34,7 +34,11 @@ export const NameSearch = () => {
 
         getInfo(searchParameters)
             .then((data) => {
-                dispatch(setSearchResults(Array.isArray(data) ? data : [data]));
+                if (data.message == "University info not found for the specified name") {
+                    dispatch(setSearchResults([]));
+                } else {
+                    dispatch(setSearchResults(Array.isArray(data) ? data : [data]));
+                }
             })
             .catch((error) => {
                 console.error("Error fetching data:", error);

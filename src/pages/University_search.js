@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { DefaultLayout } from "../layout/DefaultLayout";
-import { Button, Container } from "@chakra-ui/react";
+import { Button, Container, Text } from "@chakra-ui/react";
 import { NameSearch } from "../components/NameSearch";
 import { FilterSearch } from "../components/FilterSearch";
 import { SearchResults } from "../components/SearchResults";
@@ -22,7 +22,7 @@ export const UniversitySearch = () => {
       <Button colorScheme="purple" onClick={toggleSearchForm}>
         {isSearchFormVisible ? "Filter mode" : "Search University mode"}
       </Button>
-      <Container>
+      <Container maxW="5xl" centerContent>
         {isSearchFormVisible && currentUser && (
           <NameSearch />
         )}
@@ -31,9 +31,17 @@ export const UniversitySearch = () => {
         )}
       </Container>
 
-      {searchResults && searchResults.length > 0 && currentUser && (
-        <SearchResults results={searchResults} />
-      )}
+      {searchResults && currentUser &&
+        (searchResults.length == 0 ?
+          (
+            <Container centerContent>
+              <Text fontWeight="semibold" py="10">
+                No Results Found
+              </Text>
+            </Container>
+          ) : (
+            <SearchResults results={searchResults} />
+          ))}
     </DefaultLayout>
   );
 };
