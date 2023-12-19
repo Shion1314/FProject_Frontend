@@ -7,15 +7,13 @@ export const Home = () => {
     <DefaultLayout>
       <main>
         <div style={{ margin: "10%", marginTop: "5%", fontSize: "1.20em", lineHeight: "2" }}>
-          <h1>Welcome to the Open Library Explorer!</h1>
+          <h1>Welcome to the University Explorer!</h1>
           <p style={{ margin: "3%" }}>
-            This application utilizes the Open Library API to provide information about books and
-            authors. Explore the world of literature by searching for your favorite authors or
-            discovering random books.
+          This is a University search tool, allow user to search for university based on their score and their
+            finanical strength
           </p>
           <p>
-            Use the navigation below to get started, and enjoy your journey through the vast
-            collection of the Open Library.
+          Click on the icon to login and begin
           </p>
         </div>
       </main>
