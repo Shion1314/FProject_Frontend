@@ -1,7 +1,7 @@
 import { Button, TableContainer, Table, Th, Tr, Thead, Tbody, Td } from "@chakra-ui/react";
-import { getFavorites } from "../api/Favorites";
+import { addFavorite, getFavorites, removeFavorite } from "../api/Favorites";
 import { useEffect, useState } from "react";
-import { UniversityWebsite } from "./UniversityWebsiteLink";
+import { UniversityWebsiteLink } from "./UniversityWebsiteLink";
 
 export const SearchResults = ({ results }) => {
     const [favoriteUniversity, setFavoriteUniversity] = useState([]);
@@ -33,10 +33,10 @@ export const SearchResults = ({ results }) => {
                     </Tr>
                 </Thead>
                 <Tbody>
-                    {results.map((result, index) => (
-                        <Tr key={index} bg={favoriteUniversity.includes(result.id) ? "#F0E3FF" : ""}>
+                    {results.map((result) => (
+                        <Tr key={result.university_name} bg={favoriteUniversity.includes(result.id) ? "#F0E3FF" : ""}>
                             <Td maxW="150px" whiteSpace="normal">{result.university_name}</Td>
-                            <Td maxW="130px"><UniversityWebsite name={result.university_name} /></Td>
+                            <Td maxW="130px"><UniversityWebsiteLink name={result.university_name} /></Td>
                             <Td>{result.avg_sat == 0 ? "-" : result.avg_sat}</Td>
                             <Td>{result.avg_act == 0 ? "-" : result.avg_act}</Td>
                             <Td>{result.gpa_avg}</Td>

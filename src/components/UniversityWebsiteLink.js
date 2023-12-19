@@ -3,7 +3,7 @@ import { getUniversityWebsite } from "../api/UniversityWebsite";
 import { useState } from "react";
 import { Text } from "@chakra-ui/react";
 
-export const UniversityWebsite = ({ name }) => {
+export const UniversityWebsiteLink = ({ name }) => {
     const [websiteInfo, setWebsiteInfo] = useState({ domain: "-", website: "-" });
     useEffect(() => {
         getUniversityWebsite(name).then((link) => {
@@ -11,7 +11,7 @@ export const UniversityWebsite = ({ name }) => {
                 setWebsiteInfo({ domain: link[0].domains, website: link[0].web_pages });
             }
         })
-    })
+    }, [name])
     return (
         <>
             {websiteInfo.domain === "-" ? "-" : (
