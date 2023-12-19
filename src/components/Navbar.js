@@ -55,16 +55,6 @@ export const Navbar = () => {
         </NavbarLink>
 
         <Flex alignItems="center">
-          <Button
-            as={Link}
-            variant="outline"
-            colorScheme="purple"
-            mx="5"
-            fontSize="sm"
-            to="/University_Search"
-          >
-            Search University
-          </Button>
           <Menu>
             <MenuButton as={Button} rounded={"full"} variant={"link"} cursor={"pointer"} minW={0}>
               <Avatar name={currentUser && `${currentUser.firstName} ${currentUser.lastName}`} />
