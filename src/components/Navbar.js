@@ -66,7 +66,7 @@ export const Navbar = () => {
                 <MenuDivider />
                 {currentUser && (
                   <MenuItem as={Link} to="/Profile">
-                    Profile
+                    My Favorites
                   </MenuItem>
                 )}
                 <MenuItem as={Link} to={`/${currentUser ? "logout" : "login"}`}>
