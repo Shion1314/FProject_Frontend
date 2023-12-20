@@ -43,7 +43,7 @@ Only output the university info that fit the inputed value which is the universi
 - [NameSearch.js](https://github.com/Shion1314/FProject_Frontend/blame/bf1669ac94f3002261d99ebb0a92f2046c37f02b/src/components/NameSearch.js#L12-L70)
 - [SearchResult](https://github.com/Shion1314/FProject_Frontend/blame/bf1669ac94f3002261d99ebb0a92f2046c37f02b/src/components/SearchResults.js#L19-L71) (It used the data that are changed then store in the FilterSearch.js and NameSearch.js to display the data)
 >
-CHECK THE ABOVE 3 LINK MAKE SENSE OR NOT
+CHECK THE ABOVE 3 LINK MAKE SENSE OR NOT if not feel free to just change it
 
 ### Components should enable to user to perform CRUD operations on the backend models
 
