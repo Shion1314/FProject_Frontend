@@ -24,7 +24,7 @@ Automatically fill input fields.
 #### 4. University Website Component
 Show the official website of a university.
 - [UniversityWebsite.js](https://github.com/Shion1314/FProject_Frontend/blame/a88aa11a7e4ff498a46829a81b2ec611602c171e/src/api/UniversityWebsite.js#L1-L4)
-
+- [NameSearch.js](https://github.com/Shion1314/FProject_Frontend/blame/f59739ed55b8413b343b35b256dc6082830bcef4/src/components/NameSearch.js#L64-L77)
 
 ### 1 or more components should take text-based user input
 * https://github.com/Shion1314/FProject_Frontend/blame/e96e14519755c08f1fe405376358fd640843435b/src/components/NameSearch.js#L49-L83
