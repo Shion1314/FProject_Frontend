@@ -4,11 +4,14 @@ Example URL: http://localhost:3000/FProject_Frontend/ (Delete this if you guys t
 ## UI Requirements
 ### Create a topbar or sidebar component that is present throughout the app
 ### Create 3 or more additional components
+* https://github.com/Shion1314/FProject_Frontend/blob/main/src/components/FilterSearch.js
+* * https://github.com/Shion1314/FProject_Frontend/blob/main/src/components/NameSearch.js
 
 ### 1 or more components should take text-based user input
 * https://github.com/Shion1314/FProject_Frontend/blame/e96e14519755c08f1fe405376358fd640843435b/src/components/NameSearch.js#L49-L83
   
 ### 1 or more components should display data representing a single instance from a model
+
 ### 1 or more components should display data based on store state
 ### Components should enable to user to perform CRUD operations on the backend models
 
