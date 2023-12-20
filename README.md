@@ -9,6 +9,7 @@ Example URL: http://localhost:3000/FProject_Frontend/ (Delete this if you guys t
 
 ### 1 or more components should take text-based user input
 * https://github.com/Shion1314/FProject_Frontend/blame/e96e14519755c08f1fe405376358fd640843435b/src/components/NameSearch.js#L49-L83
+* https://github.com/Shion1314/FProject_Frontend/blame/f93ca8e88a8076707214753eaa025e81222c10d3/src/components/FilterSearch.js#L38-L88
   
 ### 1 or more components should display data representing a single instance from a model
 * https://github.com/Shion1314/FProject_Frontend/blame/e96e14519755c08f1fe405376358fd640843435b/src/components/NameSearch.js#L49-L83
