@@ -32,7 +32,14 @@ Example URL: http://localhost:3000/FProject_Frontend/ (Delete this if you guys t
 - The `FilterSearch.js` in [line 31](https://github.com/Shion1314/FProject_Frontend/blame/cb0b9351b988fc67536a37ad4a0b553117c091ea/src/components/FilterSearch.js#L31) and `NameSearch.js` in [lines 36-42](https://github.com/Shion1314/FProject_Frontend/blame/bf1669ac94f3002261d99ebb0a92f2046c37f02b/src/components/NameSearch.js#L36-L42) modifies the `searchResults` store state
 
 ### Components should enable to user to perform CRUD operations on the backend models
-
+- CREATE
+   - The Add Favorite button from `SearchResults.js` [lines 61-71](https://github.com/Shion1314/FProject_Frontend/blame/e96e14519755c08f1fe405376358fd640843435b/src/components/SearchResults.js#L61-L71) uses the `addFavorite()` function from `api/favorites.js` in [lines 3-18](https://github.com/Shion1314/FProject_Frontend/blob/e96e14519755c08f1fe405376358fd640843435b/src/api/Favorites.js#L3-L18) to create a new favorite university into the database
+- READ
+  - The `getFavorite()` function from `api/favorites.js` [lines 20-26](https://github.com/Shion1314/FProject_Frontend/blob/e96e14519755c08f1fe405376358fd640843435b/src/api/Favorites.js#L20-L26) return the list of favorited universities for the current user
+- Update
+  - The `rankFavorite()` function from `api/favorites.js` [lines 39-57](https://github.com/Shion1314/FProject_Frontend/blob/cb0b9351b988fc67536a37ad4a0b553117c091ea/src/api/Favorites.js#L39-L57) updates the ranking of their favorited universities
+- Delete
+  - The `removeFavorite()` function from `api/favorites.js` [lines 28-37](https://github.com/Shion1314/FProject_Frontend/blob/cb0b9351b988fc67536a37ad4a0b553117c091ea/src/api/Favorites.js#L28-L37) remove the indicated university from the database
 
 ## Client-Side Routing
 
