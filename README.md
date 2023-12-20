@@ -10,11 +10,11 @@ Example URL: http://localhost:3000/FProject_Frontend/ (Delete this if you guys t
 ### Create 3 or more additional components
 #### 1. Search Component
 Search for universities based on user input on the university name and display relevant information.
-- [FilterSearch.js](https://github.com/Shion1314/FProject_Frontend/blame/e96e14519755c08f1fe405376358fd640843435b/src/components/NameSearch.js#L49-L83)
+- [FilterSearch](https://github.com/Shion1314/FProject_Frontend/blame/e96e14519755c08f1fe405376358fd640843435b/src/components/NameSearch.js#L49-L83)
 
 #### 2. Filter Component
 Filter universities based on user input on scores and more, then display relevant information.
-- [NameSearch.js](https://github.com/Shion1314/FProject_Frontend/blame/f93ca8e88a8076707214753eaa025e81222c10d3/src/components/FilterSearch.js#L38-L88)
+- [University Search by Name](https://github.com/Shion1314/FProject_Frontend/blame/f93ca8e88a8076707214753eaa025e81222c10d3/src/components/FilterSearch.js#L38-L88)
 
 #### 3. Auto Fill Component
 Automatically fill input fields.
