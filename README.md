@@ -4,8 +4,14 @@ Example URL: http://localhost:3000/FProject_Frontend/ (Delete this if you guys t
 ## UI Requirements
 ### Create a topbar or sidebar component that is present throughout the app
 ### Create 3 or more additional components
+#### Search based on user input on university name
 * https://github.com/Shion1314/FProject_Frontend/blob/main/src/components/FilterSearch.js
-* * https://github.com/Shion1314/FProject_Frontend/blob/main/src/components/NameSearch.js
+>
+#### Filter based on user input on score and etc
+* https://github.com/Shion1314/FProject_Frontend/blob/main/src/components/NameSearch.js
+#### AUTO FILL
+* https://github.com/Shion1314/FProject_Frontend/blame/47af0c765c0aa48f8e3fe173dd0760b132827053/src/api/UniversityAutofill.js#L1-L4
+  
 
 ### 1 or more components should take text-based user input
 * https://github.com/Shion1314/FProject_Frontend/blame/e96e14519755c08f1fe405376358fd640843435b/src/components/NameSearch.js#L49-L83
