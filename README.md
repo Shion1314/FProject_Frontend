@@ -8,37 +8,28 @@ Example URL: http://localhost:3000/FProject_Frontend/ (Delete this if you guys t
 
 
 ### Create 3 or more additional components
-#### 1. Search Component
-Search for universities based on user input on the university name and display relevant information.
-- [FilterSearch](https://github.com/Shion1314/FProject_Frontend/blame/e96e14519755c08f1fe405376358fd640843435b/src/components/NameSearch.js#L49-L83)
+1. Name Search Component
+   - Search for universities based on user-inputted university names and display relevant information.
+   - [NameSearch.js](https://github.com/Shion1314/FProject_Frontend/blame/e96e14519755c08f1fe405376358fd640843435b/src/components/NameSearch.js)
 
-#### 2. Filter Component
-Filter universities based on user input on scores and more, then display relevant information.
-- [University Search by Name](https://github.com/Shion1314/FProject_Frontend/blame/f93ca8e88a8076707214753eaa025e81222c10d3/src/components/FilterSearch.js#L38-L88)
+2. Filter Component
+   - Filter universities based on user-inputted SAT scores, GPA scores, tuition, and major, then display relevant information.
+   - [FilterSearch.js](https://github.com/Shion1314/FProject_Frontend/blame/f93ca8e88a8076707214753eaa025e81222c10d3/src/components/FilterSearch.js)
 
-#### 3. Auto Fill Component
-Automatically fill input fields for UniversityName search.
-- [UniversityAutofill.js](https://github.com/Shion1314/FProject_Frontend/blame/47af0c765c0aa48f8e3fe173dd0760b132827053/src/api/UniversityAutofill.js#L1-L4)(API)
-- [NameSearch.js](https://github.com/Shion1314/FProject_Frontend/blame/8c1f8802e5b721fa68ed21afb5a138b3ab920acb/src/components/NameSearch.js#L64-L72)(@ccheung check if this is correct for AUTO FILL)
+3. University Website Link Component
+   - Fetch the official website of a university from external API 
+   - [UniversityWebsiteLink.js](https://github.com/Shion1314/FProject_Frontend/blame/a88aa11a7e4ff498a46829a81b2ec611602c171e/src/components/UniversityWebsiteLink.js)
 
-#### 4. University Website Component
-Show the official website of a university.
-- [UniversityWebsite.js](https://github.com/Shion1314/FProject_Frontend/blame/a88aa11a7e4ff498a46829a81b2ec611602c171e/src/api/UniversityWebsite.js#L1-L4)(API)
-- [SearchResult.js](https://github.com/Shion1314/FProject_Frontend/blame/35867805811e3bf93704975c773a52c027bb99fc/src/components/SearchResults.js#L39)(@ccheung check if this is correct at SearchResult.js)
+4. Search Results Component
+   - Display universities that match what the user searched for in a table that outlines their details
+   - [SearchResults.js](https://github.com/Shion1314/FProject_Frontend/blame/e96e14519755c08f1fe405376358fd640843435b/src/components/SearchResults.js)
 
-#### 5. Button to add/Remove the favorited University by User
-- [Favorites.js](https://github.com/Shion1314/FProject_Frontend/blame/d35907d7ac489f9abbe9a6cc3d73d5f7b55ba088/src/api/Favorites.js#L8-L37)(API)
-- [SearchResult.js](https://github.com/Shion1314/FProject_Frontend/blame/d35907d7ac489f9abbe9a6cc3d73d5f7b55ba088/src/components/SearchResults.js#L48-L71) (Check if this is correct)
-
-#### 6. Login/Register
-
-  
 ### 1 or more components should take text-based user input
-#### 1. Search Based University Name inputed by the User
-- [Search Based University Name inputed](https://github.com/Shion1314/FProject_Frontend/blame/e96e14519755c08f1fe405376358fd640843435b/src/components/NameSearch.js#L49-L83)
+1. Search Based University Name inputed by the User
+- [Name Search Component](https://github.com/Shion1314/FProject_Frontend/blame/e96e14519755c08f1fe405376358fd640843435b/src/components/NameSearch.js#L54-L63)
 
-#### 2. Filter the university Based on the input by the user such as score,tution, and Major
-- [Filter University based on inputs](https://github.com/Shion1314/FProject_Frontend/blame/f93ca8e88a8076707214753eaa025e81222c10d3/src/components/FilterSearch.js#L38-L88)
+2. Filter the university Based on the input by the user such as score, tuition, and major
+- [Filter Search Component](https://github.com/Shion1314/FProject_Frontend/blame/f93ca8e88a8076707214753eaa025e81222c10d3/src/components/FilterSearch.js#L38-L88)
 
 ### 1 or more components should display data representing a single instance from a model
 - [Search Based University Name inputed](https://github.com/Shion1314/FProject_Frontend/blame/e96e14519755c08f1fe405376358fd640843435b/src/components/NameSearch.js#L49-L83)
@@ -70,8 +61,14 @@ CHECK THE ABOVE 3 LINK MAKE SENSE OR NOT if not feel free to just change it
 ## API Calls
 ### Backend: Using the backend routes, should be able to perform CRUD operations on database models
 ### External: Should make 2 or more External API calls
-
-
+1. Auto Fill Component
+- Automatically fill input fields for UniversityName search.
+- [UniversityAutofill.js](https://github.com/Shion1314/FProject_Frontend/blame/47af0c765c0aa48f8e3fe173dd0760b132827053/src/api/UniversityAutofill.js#L1-L4)(API)
+- [NameSearch.js](https://github.com/Shion1314/FProject_Frontend/blame/8c1f8802e5b721fa68ed21afb5a138b3ab920acb/src/components/NameSearch.js#L64-L72)
+2. University Website Link Component
+   - Fetch university website link from external API based on the university name
+   - [UniversityWebsite.js](https://github.com/Shion1314/FProject_Frontend/blame/a88aa11a7e4ff498a46829a81b2ec611602c171e/src/api/UniversityWebsite.js#L1-L4)(API)
+   - [SearchResult.js](https://github.com/Shion1314/FProject_Frontend/blame/a88aa11a7e4ff498a46829a81b2ec611602c171e/src/components/UniversityWebsiteLink.js#L39)
 
 ## EXTRA credit
 ### Develop a project that isn't the Employee Management System
