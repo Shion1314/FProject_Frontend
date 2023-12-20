@@ -11,6 +11,8 @@ Example URL: http://localhost:3000/FProject_Frontend/ (Delete this if you guys t
 * https://github.com/Shion1314/FProject_Frontend/blame/e96e14519755c08f1fe405376358fd640843435b/src/components/NameSearch.js#L49-L83
   
 ### 1 or more components should display data representing a single instance from a model
+* https://github.com/Shion1314/FProject_Frontend/blame/e96e14519755c08f1fe405376358fd640843435b/src/components/NameSearch.js#L49-L83
+Only output the university info that fit the inputed value which is the university Name
 
 ### 1 or more components should display data based on store state
 ### Components should enable to user to perform CRUD operations on the backend models
