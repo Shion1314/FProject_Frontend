@@ -29,6 +29,9 @@ Show the official website of a university.
 #### 5. Button to add/Remove the favorited University by User
 - [Favorites.js](https://github.com/Shion1314/FProject_Frontend/blame/d35907d7ac489f9abbe9a6cc3d73d5f7b55ba088/src/api/Favorites.js#L8-L37)(API)
 - [SearchResult.js](https://github.com/Shion1314/FProject_Frontend/blame/d35907d7ac489f9abbe9a6cc3d73d5f7b55ba088/src/components/SearchResults.js#L48-L71) (Check if this is correct)
+
+#### 6. Login/Register
+
   
 ### 1 or more components should take text-based user input
 #### 1. Search Based University Name inputed by the User
