@@ -17,7 +17,7 @@ Filter universities based on user input on scores and more, then display relevan
 - [University Search by Name](https://github.com/Shion1314/FProject_Frontend/blame/f93ca8e88a8076707214753eaa025e81222c10d3/src/components/FilterSearch.js#L38-L88)
 
 #### 3. Auto Fill Component
-Automatically fill input fields.
+Automatically fill input fields for UniversityName search.
 - [UniversityAutofill.js](https://github.com/Shion1314/FProject_Frontend/blame/47af0c765c0aa48f8e3fe173dd0760b132827053/src/api/UniversityAutofill.js#L1-L4)(API)
 - [NameSearch.js](https://github.com/Shion1314/FProject_Frontend/blame/8c1f8802e5b721fa68ed21afb5a138b3ab920acb/src/components/NameSearch.js#L64-L72)(@ccheung check if this is correct for AUTO FILL)
 
