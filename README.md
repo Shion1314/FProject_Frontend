@@ -31,7 +31,10 @@ Show the official website of a university.
 - [SearchResult.js](https://github.com/Shion1314/FProject_Frontend/blame/d35907d7ac489f9abbe9a6cc3d73d5f7b55ba088/src/components/SearchResults.js#L48-L71) (Check if this is correct)
   
 ### 1 or more components should take text-based user input
+#### 1. Search Based University Name inputed by the User
 - [Search Based University Name inputed](https://github.com/Shion1314/FProject_Frontend/blame/e96e14519755c08f1fe405376358fd640843435b/src/components/NameSearch.js#L49-L83)
+
+#### 2. Filter the university Based on the input by the user such as score,tution, and Major
 - [Filter University based on inputs](https://github.com/Shion1314/FProject_Frontend/blame/f93ca8e88a8076707214753eaa025e81222c10d3/src/components/FilterSearch.js#L38-L88)
 
 ### 1 or more components should display data representing a single instance from a model
