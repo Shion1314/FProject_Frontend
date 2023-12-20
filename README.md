@@ -11,6 +11,8 @@ Example URL: http://localhost:3000/FProject_Frontend/ (Delete this if you guys t
 * https://github.com/Shion1314/FProject_Frontend/blob/main/src/components/NameSearch.js
 #### AUTO FILL
 * https://github.com/Shion1314/FProject_Frontend/blame/47af0c765c0aa48f8e3fe173dd0760b132827053/src/api/UniversityAutofill.js#L1-L4
+* https://github.com/Shion1314/FProject_Frontend/blame/8c1f8802e5b721fa68ed21afb5a138b3ab920acb/src/components/NameSearch.js#L64-L72
+  CAN YOU CHECK IF THE ABOVE LINK IS CORRECT? @ccheung
   
 
 ### 1 or more components should take text-based user input
