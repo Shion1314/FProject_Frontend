@@ -26,6 +26,9 @@ Show the official website of a university.
 - [UniversityWebsite.js](https://github.com/Shion1314/FProject_Frontend/blame/a88aa11a7e4ff498a46829a81b2ec611602c171e/src/api/UniversityWebsite.js#L1-L4)(API)
 - [SearchResult.js](https://github.com/Shion1314/FProject_Frontend/blame/35867805811e3bf93704975c773a52c027bb99fc/src/components/SearchResults.js#L39)(@ccheung check if this is correct at SearchResult.js)
 
+#### 5. Button to add/Remove the favorited University by User
+- [Favorites.js](https://github.com/Shion1314/FProject_Frontend/blame/d35907d7ac489f9abbe9a6cc3d73d5f7b55ba088/src/api/Favorites.js#L8-L26)
+- [SearchResult.js](https://github.com/Shion1314/FProject_Frontend/blame/d35907d7ac489f9abbe9a6cc3d73d5f7b55ba088/src/components/SearchResults.js#L48-L71) (Check if this is correct)
   
 ### 1 or more components should take text-based user input
 - [Search Based University Name inputed](https://github.com/Shion1314/FProject_Frontend/blame/e96e14519755c08f1fe405376358fd640843435b/src/components/NameSearch.js#L49-L83)
