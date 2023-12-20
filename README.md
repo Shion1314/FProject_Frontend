@@ -39,6 +39,8 @@ Show the official website of a university.
 Only output the university info that fit the inputed value which is the university Name
 
 ### 1 or more components should display data based on store state
+- [FilterSearch.js](https://github.com/Shion1314/FProject_Frontend/blame/cb0b9351b988fc67536a37ad4a0b553117c091ea/src/components/FilterSearch.js#L9-L87)
+
 
 ### Components should enable to user to perform CRUD operations on the backend models
 
