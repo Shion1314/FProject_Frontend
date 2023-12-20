@@ -18,12 +18,12 @@ Filter universities based on user input on scores and more, then display relevan
 
 #### 3. Auto Fill Component
 Automatically fill input fields.
-- [UniversityAutofill.js](https://github.com/Shion1314/FProject_Frontend/blame/47af0c765c0aa48f8e3fe173dd0760b132827053/src/api/UniversityAutofill.js#L1-L4)
+- [UniversityAutofill.js](https://github.com/Shion1314/FProject_Frontend/blame/47af0c765c0aa48f8e3fe173dd0760b132827053/src/api/UniversityAutofill.js#L1-L4)(API)
 - [NameSearch.js](https://github.com/Shion1314/FProject_Frontend/blame/8c1f8802e5b721fa68ed21afb5a138b3ab920acb/src/components/NameSearch.js#L64-L72)
 
 #### 4. University Website Component
 Show the official website of a university.
-- [UniversityWebsite.js](https://github.com/Shion1314/FProject_Frontend/blame/a88aa11a7e4ff498a46829a81b2ec611602c171e/src/api/UniversityWebsite.js#L1-L4)
+- [UniversityWebsite.js](https://github.com/Shion1314/FProject_Frontend/blame/a88aa11a7e4ff498a46829a81b2ec611602c171e/src/api/UniversityWebsite.js#L1-L4)(API)
 - [NameSearch.js](https://github.com/Shion1314/FProject_Frontend/blame/f59739ed55b8413b343b35b256dc6082830bcef4/src/components/NameSearch.js#L64-L77)
 
 ### 1 or more components should take text-based user input
