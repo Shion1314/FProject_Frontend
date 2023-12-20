@@ -66,7 +66,7 @@ Home Page URL: http://localhost:3000/FProject_Frontend/
 
 ## API Calls
 ### Backend: Using the backend routes, should be able to perform CRUD operations on database models
-- the [utils/call-api.js](https://github.com/Shion1314/FProject_Frontend/blob/e96e14519755c08f1fe405376358fd640843435b/src/utils/call-api.js) and functions from `api/favorites.js` are used to perform CRUD operations on database models
+- the [utils/call-api.js](https://github.com/Shion1314/FProject_Frontend/blob/e96e14519755c08f1fe405376358fd640843435b/src/utils/call-api.js) and functions from [api/favorites.js](https://github.com/Shion1314/FProject_Frontend/blob/e96e14519755c08f1fe405376358fd640843435b/src/api/Favorites.js) are used to perform CRUD operations on database models
   - more information is shown above
     
 ### External: Should make 2 or more External API calls
